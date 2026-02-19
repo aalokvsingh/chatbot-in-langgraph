@@ -1,6 +1,23 @@
 # gitignore template for LangChain products, e.g., LangGraph, LangSmith
 # website: https://www.langchain.com/
 # website: https://www.langchain.com/langgraph
+#vscode
+.vscode/
+
 
 # LangGraph
 .langgraph_api/
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+
+# Byte-code files
+*.pyc
+__pycache__/
+
+
+# Environment variables (secrets)
+.env
