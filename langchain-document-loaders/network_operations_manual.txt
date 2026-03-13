@@ -1,0 +1,137 @@
+Network Operations Knowledge Base
+
+Section 1: Router Troubleshooting
+
+Routers may experience connectivity issues due to configuration errors, firmware bugs, or hardware failures. The first step in troubleshooting is to check the interface status using the command:
+
+show ip interface brief
+
+If an interface is down, verify the cable connection and check for administrative shutdown using:
+
+show running-config
+
+If necessary, enable the interface with:
+
+interface GigabitEthernet0/1
+no shutdown
+
+Always document configuration changes before applying them.
+
+
+Section 2: Switch VLAN Configuration
+
+Virtual LANs (VLANs) allow network segmentation within a switch. Each VLAN represents a separate broadcast domain.
+
+To create a VLAN on a Cisco switch:
+
+configure terminal
+vlan 10
+name SALES
+
+Assign a port to the VLAN:
+
+interface FastEthernet0/5
+switchport mode access
+switchport access vlan 10
+
+Verify VLAN configuration using:
+
+show vlan brief
+
+
+Section 3: Network Monitoring
+
+Network monitoring tools help detect outages and performance degradation.
+
+Common tools include:
+- Nagios
+- Zabbix
+- Prometheus
+- Grafana
+
+Key metrics to monitor include:
+- CPU utilization
+- Memory usage
+- Packet loss
+- Interface errors
+- Network latency
+
+
+Section 4: Firmware Upgrade Procedure
+
+Before upgrading network device firmware, perform the following checks:
+
+1. Verify device health
+2. Check current firmware version
+3. Ensure configuration backup is available
+4. Confirm maintenance window approval
+
+Firmware upgrade steps typically include:
+
+1. Upload firmware image
+2. Verify checksum
+3. Install firmware
+4. Reboot device
+5. Perform post-upgrade validation
+
+Always verify services after reboot.
+
+
+Section 5: Common Network Issues
+
+Some of the most common causes of network outages include:
+
+- Misconfigured routing protocols
+- Incorrect VLAN assignments
+- DNS failures
+- Hardware failures
+- Link congestion
+
+Network engineers should analyze logs and monitoring alerts before making configuration changes.
+
+
+Section 6: Network Automation
+
+Modern networks increasingly rely on automation tools such as:
+
+- Ansible
+- Python with Netmiko
+- Nornir
+- Terraform
+
+Automation reduces human errors and improves deployment speed.
+
+A simple Netmiko Python example for connecting to a router:
+
+connect to device
+run command "show version"
+capture output
+disconnect
+
+
+Section 7: Security Best Practices
+
+Network security is critical for protecting enterprise infrastructure.
+
+Best practices include:
+
+- Disable unused ports
+- Use strong passwords
+- Enable SSH instead of Telnet
+- Configure access control lists (ACL)
+- Enable logging and monitoring
+
+Regular security audits should be performed.
+
+
+Section 8: Incident Response
+
+When a major network outage occurs, follow these steps:
+
+1. Identify affected devices
+2. Check monitoring alerts
+3. Verify device reachability
+4. Review recent configuration changes
+5. Escalate if required
+
+Clear communication with stakeholders is essential during incidents.
